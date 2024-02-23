@@ -8,10 +8,15 @@ import "../styles/PhotoListItem.scss";
 const PhotoListItem = (props) => {
   return (
     <>
-    <img className="photo-list__item" src={props.sampleDataForPhotoListItem.imageSource}/>
-    <img src={props.sampleDataForPhotoListItem.profile} />
-    <p>{props.sampleDataForPhotoListItem.username}</p>
-    <p>{props.sampleDataForPhotoListItem.location.city} {props.sampleDataForPhotoListItem.country}</p>
+    <div className="photo-list__item">
+      <img className="photo-list__image" src={props.sampleDataForPhotoListItem.imageSource}/>
+    </div>
+    <div className="photo-list__user-details">
+      <img className="photo-list__user-profile" src={props.sampleDataForPhotoListItem.profile} />
+      <p className="photo-list__user-info">{props.sampleDataForPhotoListItem.username}</p>
+      <p className="photo-list__user-location">{props.sampleDataForPhotoListItem.location.city}</p> 
+      <p>{props.sampleDataForPhotoListItem.country}</p>
+    </div>
     </>
   );
 };
