@@ -14,8 +14,11 @@ const PhotoListItem = (props) => {
     <div className="photo-list__user-details">
       <img className="photo-list__user-profile" src={props.sampleDataForPhotoListItem.profile} />
       <p className="photo-list__user-info">{props.sampleDataForPhotoListItem.username}</p>
-      <p className="photo-list__user-location">{props.sampleDataForPhotoListItem.location.city}</p> 
-      <p>{props.sampleDataForPhotoListItem.country}</p>
+
+      <div className="photo-list__user-location">
+        <p>{props.sampleDataForPhotoListItem.location.city}, {props.sampleDataForPhotoListItem.location.country}</p> 
+    
+      </div>
     </div>
     </>
   );
