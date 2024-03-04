@@ -23,7 +23,7 @@ const sampleDataForTopicList = [
 
 const renderTopicListItems= () => {
   return sampleDataForTopicList.map(topic => (
-    <TopicListItem key ={topic.id}sampleDataForTopicList={topic} />
+    <TopicListItem key ={topic.id} title={topic.title} />
   ));
 }
 
