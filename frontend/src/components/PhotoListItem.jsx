@@ -10,22 +10,22 @@ const PhotoListItem = (props) => {
 
   const handleClick = () => {
     console.log("Photo Liked")
-    setIsLiked(!isLiked);
+    setIsLiked(prevIsLiked => !prevIsLiked);
   }
 
   return (
     <>
     <div className="photo-list__item">
       <PhotoFavButton onClick={handleClick} isLiked={isLiked}/>
-      <img className="photo-list__image" src={props.sampleDataForPhotoListItem.imageSource} />
+      <img className="photo-list__image" src={props.sampleDataForPhotoList.urls.regular} />
     
       <div className="photo-list__user-details">
-        <img className="photo-list__user-profile" src={props.sampleDataForPhotoListItem.profile} />
+        <img className="photo-list__user-profile" src={props.sampleDataForPhotoList.user.profile} />
         <div>
-          <div className="photo-list__user-info">{props.sampleDataForPhotoListItem.username}</div>
+          <div className="photo-list__user-info">{props.sampleDataForPhotoList.user.username}</div>
 
           <div className="photo-list__user-location">
-            {props.sampleDataForPhotoListItem.location.city}, {props.sampleDataForPhotoListItem.location.country}
+            {props.sampleDataForPhotoList.location.city}, {props.sampleDataForPhotoList.location.country}
           </div>
         </div>
       </div>
