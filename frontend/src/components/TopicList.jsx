@@ -2,18 +2,18 @@ import React from "react";
 
 import "../styles/TopicList.scss";
 import TopicListItem from "./TopicListItem";
-import topics from "mocks/topics";
 
-const renderTopicListItems= () => {
+
+const renderTopicListItems= (topics) => {
   return topics.map(topic => (
     <TopicListItem key ={topic.id} title={topic.title} />
   ));
 }
 
-const TopicList = () => {
+const TopicList = (props) => {
   return (
     <div className="top-nav-bar__topic-list">
-      {renderTopicListItems()}
+      {renderTopicListItems(props.topics)}
     </div>
   );
 };
