@@ -13,8 +13,7 @@ const App = () => {
     <div className="App">
       {/* {renderPhotoListItems()} */}
       <TopNavigation/>
-        <TopicList />
-        <FavBadge />
+        
       
       <PhotoList/>
     </div>
