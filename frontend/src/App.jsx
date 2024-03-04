@@ -1,9 +1,7 @@
 import React from 'react';
 import './App.scss';
-import PhotoList from 'components/PhotoList';
-import TopicList from 'components/TopicList';
-import TopNavigation from 'components/TopNavigationBar';
-import FavBadge from 'components/FavBadge';
+
+import HomeRoute from 'routes/HomeRoute';
 
 
 
@@ -11,11 +9,7 @@ import FavBadge from 'components/FavBadge';
 const App = () => {
   return (
     <div className="App">
-      {/* {renderPhotoListItems()} */}
-      <TopNavigation/>
-        
-      
-      <PhotoList/>
+      <HomeRoute />
     </div>
   );
 };
