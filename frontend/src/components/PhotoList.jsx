@@ -4,13 +4,16 @@ import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 
 
-const renderPhotoListItems = (photos) => {
+
+
+const PhotoList = (props) => {
+
+  const renderPhotoListItems = (photos) => {
     return photos.map(photo => (
-      <PhotoListItem key={photo.id} photo={photo} isLiked={photo.isLiked} handleClick={photo.handleClick} />
+      <PhotoListItem key={photo.id} photo={photo} isLiked={props.favorites.includes(photo.id)} handleClick={props.handleClick} />
     ));
   };
 
-const PhotoList = (props) => {
   return (
     <ul className="photo-list">
       {renderPhotoListItems(props.photos)}

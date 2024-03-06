@@ -10,7 +10,7 @@ function PhotoFavButton(props) {
   return (
     <div className="photo-list__fav-icon"onClick={onClick}>
        <div className="photo-list__fav-icon-svg">
-        <FavIcon/>
+        <FavIcon isLiked={isLiked}/>
       </div>
     </div>
   );

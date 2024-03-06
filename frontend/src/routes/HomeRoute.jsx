@@ -6,19 +6,32 @@ import '../styles/HomeRoute.scss';
 
 const HomeRoute = (props) => {
 
-  const [isLiked, setIsLiked] = useState(false);
+  
   const [favorites, setFavorites] = useState([]);
 
 
-  const handleClick = () => {
+
+  const handleClick = (id) => {
     console.log("Photo Liked")
-    setIsLiked(prevIsLiked => !prevIsLiked);
+    if(favorites.includes(id)) {
+      const filtered = favorites.filter((favorite) => {
+        return (favorite !== id)
+      })
+      setFavorites(filtered);
+    } else {
+      const copy = [
+        ...favorites, id
+      ]
+      setFavorites(copy)
+    }
+    
+
   }
 
   return (
     <div className="home-route">
-      <TopNavigation topics={props.topics} isLiked={isLiked} handleClick={handleClick}/>
-      <PhotoList photos={props.photos} isLiked={isLiked} handleClick={handleClick}/>
+      <TopNavigation topics={props.topics} isLiked={true} />
+      <PhotoList photos={props.photos} isLiked={true} favorites={favorites}handleClick={handleClick}/>
     </div>
   );
 };
