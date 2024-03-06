@@ -6,7 +6,7 @@ import PhotoListItem from "./PhotoListItem";
 
 const renderPhotoListItems = (photos) => {
     return photos.map(photo => (
-      <PhotoListItem key={photo.id}sampleDataForPhotoList={photo} />
+      <PhotoListItem key={photo.id} photo={photo} isLiked={photo.isLiked} handleClick={photo.handleClick} />
     ));
   };
 
