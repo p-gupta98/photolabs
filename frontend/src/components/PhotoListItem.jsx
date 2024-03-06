@@ -5,7 +5,7 @@ import PhotoFavButton from "./PhotoFavButton";
 
 
 const PhotoListItem = (props) => {
-
+  // console.log('Props in PhotoListItem:', props);
 
 
   return (

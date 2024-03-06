@@ -7,6 +7,8 @@ import '../styles/HomeRoute.scss';
 const HomeRoute = (props) => {
 
   const [isLiked, setIsLiked] = useState(false);
+  const [favorites, setFavorites] = useState([]);
+
 
   const handleClick = () => {
     console.log("Photo Liked")
