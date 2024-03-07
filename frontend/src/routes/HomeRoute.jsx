@@ -31,7 +31,7 @@ const HomeRoute = (props) => {
   return (
     <div className="home-route">
       <TopNavigation topics={props.topics} isLiked={favorites.length > 0} />
-      <PhotoList photos={props.photos} isLiked={true} favorites={favorites}handleClick={handleClick}/>
+      <PhotoList photos={props.photos} favorites={favorites}handleClick={handleClick} displayModal={props.displayModal} setDisplayModalFunc={props.setDisplayModalFunc} />
     </div>
   );
 };
