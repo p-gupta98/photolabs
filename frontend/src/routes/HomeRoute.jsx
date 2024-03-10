@@ -7,31 +7,31 @@ import '../styles/HomeRoute.scss';
 const HomeRoute = (props) => {
 
   
-  const [favorites, setFavorites] = useState([]);
+  // const [favorites, setFavorites] = useState([]);
   
-  const handleClick = (id) => {
-    console.log("Photo Liked")
-    if(favorites.includes(id)) {
-      const filtered = favorites.filter((favorite) => {
-        return (favorite !== id)
-      })
-      setFavorites(filtered);
-    } else {
-      const copy = [
-        ...favorites, id
-      ]
-      setFavorites(copy)
-    }
+  // const handleClick = (id) => {
+  //   console.log("Photo Liked")
+  //   if(favorites.includes(id)) {
+  //     const filtered = favorites.filter((favorite) => {
+  //       return (favorite !== id)
+  //     })
+  //     setFavorites(filtered);
+  //   } else {
+  //     const copy = [
+  //       ...favorites, id
+  //     ]
+  //     setFavorites(copy)
+  //   }
     
-  }
+  // }
 
   return (
     <div className="home-route">
-      <TopNavigation topics={props.topics} isLiked={favorites.length > 0} />
+      <TopNavigation topics={props.topics} isLiked={props.favorites.length > 0} />
       <PhotoList 
       photos={props.photos} 
-      favorites={favorites}
-      handleClick={handleClick} 
+      favorites={props.favorites}
+      handleClick={props.handleClick} 
       handlePhotoClick={props.handlePhotoClick}
       displayModal={props.displayModal} 
       setDisplayModalFunc={props.setDisplayModalFunc} 

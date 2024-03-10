@@ -22,10 +22,32 @@ const App = () => {
     setDisplayModal(true);
   };
 
+  const [favorites, setFavorites] = useState([]);
+  
+  const handleClick = (id) => {
+    console.log("Photo Liked")
+    if(favorites.includes(id)) {
+      const filtered = favorites.filter((favorite) => {
+        return (favorite !== id)
+      })
+      setFavorites(filtered);
+    } else {
+      const copy = [
+        ...favorites, id
+      ]
+      setFavorites(copy)
+    }
+    
+  }
+
   return (
     <div className="App">
-      <HomeRoute photos={photos} topics={topics} setDisplayModalFunc={setDisplayModalFunc} handlePhotoClick={handlePhotoClick} selectedPhoto={selectedPhoto}/>
-      {displayModal && <PhotoDetailsModal displayModal={displayModal} setDisplayModalFunc={setDisplayModalFunc} selectedPhoto={selectedPhoto}/>}
+      <HomeRoute photos={photos} topics={topics} setDisplayModalFunc={setDisplayModalFunc} handlePhotoClick={handlePhotoClick} selectedPhoto={selectedPhoto} favorites={favorites}
+      handleClick={handleClick}/>
+      {displayModal && <PhotoDetailsModal displayModal={displayModal} setDisplayModalFunc={setDisplayModalFunc} 
+      selectedPhoto={selectedPhoto} 
+      favorites={favorites}
+      handleClick={handleClick}/>}
     </div>
   );
 };
