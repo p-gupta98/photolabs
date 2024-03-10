@@ -10,7 +10,14 @@ const PhotoList = (props) => {
 
   const renderPhotoListItems = (photos) => {
     return photos.map(photo => (
-      <PhotoListItem key={photo.id} photo={photo} isLiked={props.favorites.includes(photo.id)} handleClick={props.handleClick} setDisplayModalFunc={props.setDisplayModalFunc}/>
+      <PhotoListItem 
+      key={photo.id} 
+      photo={photo} 
+      isLiked={props.favorites.includes(photo.id)} 
+      handleClick={props.handleClick} 
+      handlePhotoClick={props.handlePhotoClick}
+      setDisplayModalFunc={props.setDisplayModalFunc}
+      />
     ));
   };
 

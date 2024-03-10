@@ -8,9 +8,7 @@ const HomeRoute = (props) => {
 
   
   const [favorites, setFavorites] = useState([]);
-
-
-
+  
   const handleClick = (id) => {
     console.log("Photo Liked")
     if(favorites.includes(id)) {
@@ -25,13 +23,19 @@ const HomeRoute = (props) => {
       setFavorites(copy)
     }
     
-
   }
 
   return (
     <div className="home-route">
       <TopNavigation topics={props.topics} isLiked={favorites.length > 0} />
-      <PhotoList photos={props.photos} favorites={favorites}handleClick={handleClick} displayModal={props.displayModal} setDisplayModalFunc={props.setDisplayModalFunc} />
+      <PhotoList 
+      photos={props.photos} 
+      favorites={favorites}
+      handleClick={handleClick} 
+      handlePhotoClick={props.handlePhotoClick}
+      displayModal={props.displayModal} 
+      setDisplayModalFunc={props.setDisplayModalFunc} 
+      />
     </div>
   );
 };

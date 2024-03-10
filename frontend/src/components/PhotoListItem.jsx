@@ -15,7 +15,7 @@ const PhotoListItem = (props) => {
     <>
     <div className="photo-list__item">
       <PhotoFavButton onClick={handleClick} isLiked={props.isLiked}/>
-      <img className="photo-list__image" src={props.photo.urls.regular} onClick={props.setDisplayModalFunc}/>
+      <img className="photo-list__image" src={props.photo.urls.regular} onClick={() => props.handlePhotoClick(props.photo)} />
     
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={props.photo.user.profile} />
