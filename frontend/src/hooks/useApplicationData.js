@@ -10,41 +10,41 @@ function useApplicationData() {
   });
   
   
-  const updateToFavPhotoIds = (newFavorites) => {
+  const setFavorites = (newFavorites) => {
     setState((prev) => ({ ...prev, favorites: newFavorites }));
   };
 
-  const setPhotoSelected = (photo) => {
+  const setSelectedPhoto = (photo) => {
     setState((prev) => ({ ...prev, selectedPhoto: photo }));
   };
 
-  const onClosePhotoDetailsModal = () => {
-    setState((prev) => ({ ...prev, displayModal: false }));
+  const setDisplayModal = () => {
+    setState((prev) => ({ ...prev, displayModal: true }));
   };
 
-  const setDisplayModalFunc = () => {
+  const onClosePhotoDetailsModal = () => {
     setState((prev) => ({ ...prev, displayModal: !prev.displayModal }));
   };
 
-  const handlePhotoClick = (photo) => {
+  const onPhotoSelect = (photo) => {
     setSelectedPhoto(photo);
     setDisplayModal(true);
   };
   
   
   
-  const handleClick = (id) => {
+  const updateToFavPhotoIds = (id) => {
     console.log("Photo Liked")
     if(state.favorites.includes(id)) {
       const filtered = state.favorites.filter((favorite) => {
         return (favorite !== id)
       })
-      updateToFavPhotoIds(filtered);
+      setFavorites(filtered);
     } else {
       const copy = [
-        ...favorites, id
+        ...state.favorites, id
       ]
-      updateToFavPhotoIds(copy)
+      setFavorites(copy)
     }
     
   }
@@ -52,11 +52,9 @@ function useApplicationData() {
   const applicationData = {
     state,
     updateToFavPhotoIds,
-    setPhotoSelected,
+    setSelectedPhoto,
     onClosePhotoDetailsModal,
-    setDisplayModalFunc,
-    handlePhotoClick,
-    handleClick,
+    onPhotoSelect,
   };
 
   return applicationData;

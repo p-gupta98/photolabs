@@ -55,19 +55,20 @@ const App = () => {
       <HomeRoute 
         photos={photos} 
         topics={topics} 
-        setDisplayModalFunc={setDisplayModalFunc} 
-        handlePhotoClick={handlePhotoClick} 
+        onClosePhotoDetailsModal={onClosePhotoDetailsModal} 
+        onPhotoSelect={onPhotoSelect} 
         selectedPhoto={state.selectedPhoto} 
         favorites={state.favorites}
-        handleClick={handleClick}
+        updateToFavPhotoIds={updateToFavPhotoIds}
       />
 
       {state.displayModal && <PhotoDetailsModal 
         displayModal={state.displayModal} 
-        setDisplayModalFunc={setDisplayModalFunc} 
+        onClosePhotoDetailsModal={onClosePhotoDetailsModal} 
         selectedPhoto={state.selectedPhoto} 
         favorites={state.favorites}
-        handleClick={handleClick}
+        onPhotoSelect={onPhotoSelect} 
+        updateToFavPhotoIds={updateToFavPhotoIds}
       />}
 
     </div>

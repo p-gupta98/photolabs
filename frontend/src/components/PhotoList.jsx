@@ -16,9 +16,9 @@ const PhotoList = (props) => {
       key={photo.id} 
       photo={photo} 
       isLiked={props.favorites && props.favorites.includes(photo.id)} 
-      handleClick={props.handleClick} 
-      handlePhotoClick={props.handlePhotoClick}
-      setDisplayModalFunc={props.setDisplayModalFunc}
+      updateToFavPhotoIds={props.updateToFavPhotoIds} 
+      onPhotoSelect={props.onPhotoSelect}
+      onClosePhotoDetailsModal={props.onClosePhotoDetailsModal}
       />
     ));
   };

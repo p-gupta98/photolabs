@@ -31,10 +31,10 @@ const HomeRoute = (props) => {
       <PhotoList 
       photos={props.photos} 
       favorites={props.favorites}
-      handleClick={props.handleClick} 
-      handlePhotoClick={props.handlePhotoClick}
+      updateToFavPhotoIds={props.updateToFavPhotoIds} 
+      onPhotoSelect={props.onPhotoSelect}
       displayModal={props.displayModal} 
-      setDisplayModalFunc={props.setDisplayModalFunc} 
+      onClosePhotoDetailsModal={props.onClosePhotoDetailsModal} 
       />
     </div>
   );

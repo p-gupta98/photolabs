@@ -11,10 +11,10 @@ const PhotoDetailsModal = (props) => {
     return (
       props.displayModal && (
       <div className="photo-details-modal">
-        <button className="photo-details-modal__close-button" onClick={props.setDisplayModalFunc}>
+        <button className="photo-details-modal__close-button" onClick={props.onClosePhotoDetailsModal}>
           <img src={closeSymbol} alt="close symbol" />
         </button>
-        <PhotoFavButton onClick={props.handleClick} isLiked={props.favorites && props.favorites.includes(props.selectedPhoto.id)}/>
+        <PhotoFavButton onClick={props.updateToFavPhotoIds} isLiked={props.favorites && props.favorites.includes(props.selectedPhoto.id)}/>
         <img className="photo-details-modal__image" src={props.selectedPhoto.urls.full} alt={props.selectedPhoto.description} />
         
         <div>
@@ -29,7 +29,7 @@ const PhotoDetailsModal = (props) => {
         <div className="photo-details-modal__header">
           Similar Photos
         </div>
-        <PhotoList  photos={Object.values(props.selectedPhoto.similar_photos)} handleClick={props.handleClick} favorites={props.favorites}/>  
+        <PhotoList  photos={Object.values(props.selectedPhoto.similar_photos)} updateToFavPhotoIds={props.updateToFavPhotoIds} favorites={props.favorites}/>  
       </div>
       )
     )

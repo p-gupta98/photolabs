@@ -8,14 +8,14 @@ const PhotoListItem = (props) => {
   // console.log('Props in PhotoListItem:', props);
 
   const handleClick = function() {
-    props.handleClick(props.photo.id);
+    props.updateToFavPhotoIds(props.photo.id);
   }
 
   return (
     <>
     <div className="photo-list__item">
       <PhotoFavButton onClick={handleClick} isLiked={props.isLiked}/>
-      <img className="photo-list__image" src={props.photo.urls.regular} onClick={() => props.handlePhotoClick(props.photo)} />
+      <img className="photo-list__image" src={props.photo.urls.regular} onClick={() => props.onPhotoSelect(props.photo)} />
     
       <div className="photo-list__user-details">
         <img className="photo-list__user-profile" src={props.photo.user.profile} />
