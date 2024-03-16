@@ -1,6 +1,9 @@
 import React from "react";
 import { useState, useReducer } from "react";
 import { useEffect } from "react";
+import photos from 'mocks/photos';
+import topics from 'mocks/topics';
+
 
 
 /* insert app levels actions below */
@@ -19,7 +22,7 @@ function reducer(state, action) {
       return { ...state, favorites: [...state.favorites, action.payload.id] };
 
     case ACTIONS.FAV_PHOTO_REMOVED:
-      return {...state, favorites: state.favorites.filter(favorite => favorite !== action.payload.id) };
+      return {...state, favorites: state.favorites.filter(favorite => favorite != action.payload.id) };
       
     case ACTIONS.SET_PHOTO_DATA:
       return {...state, photoData: action.payload.photoData};  
@@ -47,11 +50,16 @@ function useApplicationData() {
     displayModal: false,
     favorites: [],
     selectedPhoto: null,
+    photos,
+    topics
   }
   
   const [state, dispatch] = useReducer(reducer, initialState)
 
+  console.log(state.favorites);
+
   const favPhotoAdded = (id) => {
+    console.log('id', id);
     dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: { id }});
   }
 
@@ -91,41 +99,61 @@ function useApplicationData() {
   //   setState((prev) => ({ ...prev, displayModal: !prev.displayModal }));
   // };
 
-  // const onPhotoSelect = (photo) => {
-  //   setSelectedPhoto(photo);
-  //   setDisplayModal(true);
-  // };
+  const setSelectedPhoto = (photo) => {
+      // setState((prev) => ({ ...prev, selectedPhoto: photo }));
+      selectPhoto(photo);
+    };
+
+    const onClosePhotoDetailsModal = () => {
+        // setState((prev) => ({ ...prev, displayModal: !prev.displayModal }));
+        displayPhotoDetails();
+      };
+
+  
+
+  const onPhotoSelect = (photo) => {
+    setSelectedPhoto(photo);
+    // setDisplayModal(true);
+    displayPhotoDetails();
+  };
   
   
   
-  // const updateToFavPhotoIds = (id) => {
-  //   console.log("Photo Liked")
-  //   if(state.favorites.includes(id)) {
-  //     const filtered = state.favorites.filter((favorite) => {
-  //       return (favorite !== id)
-  //     })
-  //     setFavorites(filtered);
-  //   } else {
-  //     const copy = [
-  //       ...state.favorites, id
-  //     ]
-  //     setFavorites(copy)
-  //   }
+  const updateToFavPhotoIds = (id) => {
+    console.log("Photo Liked", id)
+    if(state.favorites.includes(id)) {
+      console.log('fjtfhfhfh');
+      // const filtered = state.favorites.filter((favorite) => {
+      //   return (favorite !== id)
+      // })
+      // setFavorites(filtered);
+      favPhotoRemoved(id);
+    } else {
+      // const copy = [
+      //   ...state.favorites, id
+      // ]
+      // setFavorites(copy)
+      console.log('helloo world');
+      favPhotoAdded(id);
+      
+    }
     
-  // }
+  }
 
   const applicationData = {
-    // state,
-    // updateToFavPhotoIds,
-    // setSelectedPhoto,
-    // onClosePhotoDetailsModal,
-    // onPhotoSelect,
-    favPhotoAdded,
-    favPhotoRemoved,
+    state,
+    updateToFavPhotoIds,
+    setSelectedPhoto,
+    onClosePhotoDetailsModal,
+    onPhotoSelect,
+    // favPhotoAdded,
+    // favPhotoRemoved,
     setPhotoData,
+    photos: state.photos,
     setTopicData,
-    selectPhoto,
-    displayPhotoDetails
+    topics: state.topics
+    // selectPhoto,
+    // displayPhotoDetails
   };
 
   return applicationData;

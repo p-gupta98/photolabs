@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.scss';
-import photos from 'mocks/photos';
-import topics from 'mocks/topics';
+// import photos from 'mocks/photos';
+// import topics from 'mocks/topics';
 import HomeRoute from 'routes/HomeRoute';
 import PhotoDetailsModal from 'routes/PhotoDetailsModal';
 import { useState } from 'react';
@@ -47,6 +47,14 @@ const App = () => {
     updateToFavPhotoIds,
     onLoadTopic,
     onClosePhotoDetailsModal,
+    photos,
+    topics
+    // favPhotoAdded,
+    // favPhotoRemoved,
+    // setPhotoData,
+    // setTopicData,
+    // selectPhoto,
+    // displayPhotoDetails
   } = useApplicationData();
 
 
