@@ -15,15 +15,30 @@ export const ACTIONS = {
 
 function reducer(state, action) {
   switch (action.type) {
-    case FAV_PHOTO_ADDED:
-      return { /* insert logic */ }
-    { /* insert all relevant actions as case statements*/ }  
-    }
+    case ACTIONS.FAV_PHOTO_ADDED:
+      return { ...state, favorites: [...state.favorites, action.payload.id] };
+
+    case ACTIONS.FAV_PHOTO_REMOVED:
+      return {...state, favorites: state.favorites.filter(favorite => favorite !== action.payload.id) };
+      
+    case ACTIONS.SET_PHOTO_DATA:
+      return {...state, photoData: action.payload.photoData};  
+    
+    case ACTIONS.SET_TOPIC_DATA:
+      return {...state, topicData: action.payload.topicoData};
+      
+    case ACTIONS.SELECT_PHOTO:
+      return { ...state, selectedPhoto: action.payload.photo }  
+
+    case ACTIONS.DISPLAY_PHOTO_DETAILS:
+      return { ...state, displayModal: !state.displayModal };  
+    
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
       );
   }
+}  
 
 
 function useApplicationData() {
@@ -83,28 +98,34 @@ function useApplicationData() {
   
   
   
-  const updateToFavPhotoIds = (id) => {
-    console.log("Photo Liked")
-    if(state.favorites.includes(id)) {
-      const filtered = state.favorites.filter((favorite) => {
-        return (favorite !== id)
-      })
-      setFavorites(filtered);
-    } else {
-      const copy = [
-        ...state.favorites, id
-      ]
-      setFavorites(copy)
-    }
+  // const updateToFavPhotoIds = (id) => {
+  //   console.log("Photo Liked")
+  //   if(state.favorites.includes(id)) {
+  //     const filtered = state.favorites.filter((favorite) => {
+  //       return (favorite !== id)
+  //     })
+  //     setFavorites(filtered);
+  //   } else {
+  //     const copy = [
+  //       ...state.favorites, id
+  //     ]
+  //     setFavorites(copy)
+  //   }
     
-  }
+  // }
 
   const applicationData = {
-    state,
-    updateToFavPhotoIds,
-    setSelectedPhoto,
-    onClosePhotoDetailsModal,
-    onPhotoSelect,
+    // state,
+    // updateToFavPhotoIds,
+    // setSelectedPhoto,
+    // onClosePhotoDetailsModal,
+    // onPhotoSelect,
+    favPhotoAdded,
+    favPhotoRemoved,
+    setPhotoData,
+    setTopicData,
+    selectPhoto,
+    displayPhotoDetails
   };
 
   return applicationData;
