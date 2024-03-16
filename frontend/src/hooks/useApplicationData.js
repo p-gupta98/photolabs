@@ -1,8 +1,8 @@
 import React from "react";
 import { useState, useReducer } from "react";
 import { useEffect } from "react";
-import photos from 'mocks/photos';
-import topics from 'mocks/topics';
+// import photos from 'mocks/photos';
+// import topics from 'mocks/topics';
 
 
 
@@ -28,7 +28,7 @@ function reducer(state, action) {
       return {...state, photoData: action.payload.photoData};  
     
     case ACTIONS.SET_TOPIC_DATA:
-      return {...state, topicData: action.payload.topicoData};
+      return {...state, topicData: action.payload.topicData};
       
     case ACTIONS.SELECT_PHOTO:
       return { ...state, selectedPhoto: action.payload.photo }  
@@ -50,16 +50,32 @@ function useApplicationData() {
     displayModal: false,
     favorites: [],
     selectedPhoto: null,
-    photos,
-    topics
+    photoData: [],
+    topicData: [],
+    // photos,
+    // topics
   }
   
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  console.log(state.favorites);
+  useEffect(() => {
+    fetch('/api/photos')
+    .then((res) => res.json())
+    .then(data => {
+      setPhotoData(data)
+    }) 
+  }, [])
+
+  useEffect(() => {
+    fetch('/api/topics')
+    .then((res) => res.json())
+    .then(data => {
+      setTopicData(data)
+    }) 
+  }, [])
 
   const favPhotoAdded = (id) => {
-    console.log('id', id);
+    
     dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: { id }});
   }
 
@@ -122,7 +138,7 @@ function useApplicationData() {
   const updateToFavPhotoIds = (id) => {
     console.log("Photo Liked", id)
     if(state.favorites.includes(id)) {
-      console.log('fjtfhfhfh');
+     
       // const filtered = state.favorites.filter((favorite) => {
       //   return (favorite !== id)
       // })
@@ -133,7 +149,7 @@ function useApplicationData() {
       //   ...state.favorites, id
       // ]
       // setFavorites(copy)
-      console.log('helloo world');
+     
       favPhotoAdded(id);
       
     }
@@ -148,10 +164,12 @@ function useApplicationData() {
     onPhotoSelect,
     // favPhotoAdded,
     // favPhotoRemoved,
-    setPhotoData,
-    photos: state.photos,
-    setTopicData,
-    topics: state.topics
+    // setPhotoData,
+    // photos: state.photos,
+    photos: state.photoData,
+    // setTopicData,
+    // topics: state.topics,
+    topics: state.topicData
     // selectPhoto,
     // displayPhotoDetails
   };

@@ -10,7 +10,7 @@ import useApplicationData from 'hooks/useApplicationData';
 // Note: Rendering a single component to build components in isolation
 const App = () => {
   
-
+  
   // const [displayModal, setDisplayModal] = useState(false);
   // const [selectedPhoto, setSelectedPhoto] = useState(null);
 
@@ -60,6 +60,7 @@ const App = () => {
 
   return (
     <div className="App">
+      {/* {console.log(topics)} */}
       <HomeRoute 
         photos={photos} 
         topics={topics} 
