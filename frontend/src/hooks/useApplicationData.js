@@ -1,9 +1,6 @@
 import React from "react";
 import { useState, useReducer } from "react";
 import { useEffect } from "react";
-// import photos from 'mocks/photos';
-// import topics from 'mocks/topics';
-
 
 
 /* insert app levels actions below */
@@ -62,16 +59,12 @@ function useApplicationData() {
     photoData: [],
     topicData: [],
     photosByTopicsData: [],
-    // photos,
-    // topics
   }
   
   const [state, dispatch] = useReducer(reducer, initialState)
 
 
-
   const favPhotoAdded = (id) => {
-    
     dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: { id }});
   }
 
@@ -103,21 +96,6 @@ function useApplicationData() {
     dispatch( { type: ACTIONS.DISPLAY_PHOTO_DETAILS});
   }
 
-  // const setFavorites = (newFavorites) => {
-  //   setState((prev) => ({ ...prev, favorites: newFavorites }));
-  // };
-
-  // const setSelectedPhoto = (photo) => {
-  //   setState((prev) => ({ ...prev, selectedPhoto: photo }));
-  // };
-
-  // const setDisplayModal = () => {
-  //   setState((prev) => ({ ...prev, displayModal: true }));
-  // };
-
-  // const onClosePhotoDetailsModal = () => {
-  //   setState((prev) => ({ ...prev, displayModal: !prev.displayModal }));
-  // };
 
   const setSelectedPhoto = (photo) => {
       // setState((prev) => ({ ...prev, selectedPhoto: photo }));
@@ -201,16 +179,8 @@ function useApplicationData() {
     onClosePhotoDetailsModal,
     onPhotoSelect,
     onTopicSelect,
-    // favPhotoAdded,
-    // favPhotoRemoved,
-    // setPhotoData,
-    // photos: state.photos,
     photos: state.photoData,
-    // setTopicData,
-    // topics: state.topics,
     topics: state.topicData
-    // selectPhoto,
-    // displayPhotoDetails
   };
 
   return applicationData;

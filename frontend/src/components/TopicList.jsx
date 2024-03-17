@@ -4,11 +4,7 @@ import "../styles/TopicList.scss";
 import TopicListItem from "./TopicListItem";
 
 
-
-
 const TopicList = (props) => {
-
-  
 
   const renderTopicListItems= (topics) => {
     return topics.map(topic => (
