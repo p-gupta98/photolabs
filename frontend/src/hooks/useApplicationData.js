@@ -139,6 +139,7 @@ function useApplicationData() {
 
   const onTopicSelect = (topic) => {
     selectTopic(topic);
+    console.log(topic);
   }
   
   
@@ -183,6 +184,7 @@ function useApplicationData() {
   useEffect(() => {
 
     if(state.selectedTopic) {
+      console.log('hgjhg',state.selectedTopic)
       fetch(`api/topics/photos/${state.selectedTopic}`)
       .then((res) => res.json())
       .then(data => {

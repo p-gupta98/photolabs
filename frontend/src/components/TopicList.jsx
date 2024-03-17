@@ -12,7 +12,7 @@ const TopicList = (props) => {
 
   const renderTopicListItems= (topics) => {
     return topics.map(topic => (
-      <TopicListItem key ={topic.id} title={topic.title} onTopicSelect={props.onTopicSelect}/>
+      <TopicListItem key ={topic.id} title={topic.title} onTopicSelect={props.onTopicSelect} topic={topic}/>
     ));
   }
 
