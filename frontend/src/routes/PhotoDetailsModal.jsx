@@ -7,6 +7,9 @@ import PhotoFavButton from 'components/PhotoFavButton';
 
 const PhotoDetailsModal = (props) => {
 
+  const handleClick = function() {
+    props.updateToFavPhotoIds(props.selectedPhoto.id);
+  }
   
     return (
       props.displayModal && (
@@ -14,7 +17,7 @@ const PhotoDetailsModal = (props) => {
         <button className="photo-details-modal__close-button" onClick={props.onClosePhotoDetailsModal}>
           <img src={closeSymbol} alt="close symbol" />
         </button>
-        <PhotoFavButton onClick={props.updateToFavPhotoIds} isLiked={props.favorites && props.favorites.includes(props.selectedPhoto.id)}/>
+        <PhotoFavButton onClick={handleClick} isLiked={props.favorites && props.favorites.includes(props.selectedPhoto.id)}/>
         <img className="photo-details-modal__image" src={props.selectedPhoto.urls.full} alt={props.selectedPhoto.description} />
         
         <div>

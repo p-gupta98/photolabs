@@ -45,6 +45,7 @@ const App = () => {
     state,
     onPhotoSelect,
     updateToFavPhotoIds,
+    onTopicSelect,
     onLoadTopic,
     onClosePhotoDetailsModal,
     photos,
@@ -64,9 +65,11 @@ const App = () => {
       <HomeRoute 
         photos={photos} 
         topics={topics} 
+        onTopicSelect={onTopicSelect}
         onClosePhotoDetailsModal={onClosePhotoDetailsModal} 
         onPhotoSelect={onPhotoSelect} 
         selectedPhoto={state.selectedPhoto} 
+        selectedTopic={state.selectedTopic}
         favorites={state.favorites}
         updateToFavPhotoIds={updateToFavPhotoIds}
       />

@@ -27,7 +27,7 @@ const HomeRoute = (props) => {
 
   return (
     <div className="home-route">
-      <TopNavigation topics={props.topics} isLiked={props.favorites.length > 0} />
+      <TopNavigation topics={props.topics} isLiked={props.favorites.length > 0} onTopicSelect={props.onTopicSelect}/>
       <PhotoList 
       photos={props.photos} 
       favorites={props.favorites}
