@@ -20,7 +20,7 @@ const PhotoDetailsModal = (props) => {
         
           <PhotoFavButton onClick={handleClick} isLiked={props.favorites && props.favorites.includes(props.selectedPhoto.id)}/>
         <div className='photo-details-modal__top-bar'>  
-          <img className="photo-details-modal__image" src={props.selectedPhoto.urls.full} alt={props.selectedPhoto.description} />
+          <img className="photo-details-modal__image" src={props.selectedPhoto.urls.full} alt={props.selectedPhoto.description}></img>
         </div>   
           <div>
             <div className="photo-details-modal__photographer-details">
