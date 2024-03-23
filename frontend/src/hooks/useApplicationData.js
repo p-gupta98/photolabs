@@ -81,7 +81,6 @@ function useApplicationData() {
   }
 
   const getPhotosByTopics = (photosByTopicsData) => {
-    console.log('data', photosByTopicsData);
     dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: {photoData: photosByTopicsData}})
 
   }
@@ -119,13 +118,11 @@ function useApplicationData() {
 
   const onTopicSelect = (topic) => {
     selectTopic(topic);
-    console.log(topic);
   }
   
   
   
   const updateToFavPhotoIds = (id) => {
-    console.log("Photo Liked", id)
     if(state.favorites.includes(id)) {
      
       // const filtered = state.favorites.filter((favorite) => {
@@ -164,7 +161,6 @@ function useApplicationData() {
   useEffect(() => {
 
     if(state.selectedTopic) {
-      console.log('hgjhg',state.selectedTopic)
       fetch(`api/topics/photos/${state.selectedTopic}`)
       .then((res) => res.json())
       .then(data => {
