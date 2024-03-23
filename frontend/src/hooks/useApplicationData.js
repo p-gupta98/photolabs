@@ -29,8 +29,8 @@ function reducer(state, action) {
     case ACTIONS.SET_TOPIC_DATA:
       return {...state, topicData: action.payload.topicData};
 
-    case ACTIONS.GET_PHOTOS_BY_TOPICS:
-      return { ...state, photosByTopicsData: action.payload.photosByTopicsData };
+    // case ACTIONS.GET_PHOTOS_BY_TOPICS:
+    //   return { ...state, photosByTopicsData: action.payload.photosByTopicsData };
       
     case ACTIONS.SELECT_PHOTO:
       return { ...state, selectedPhoto: action.payload.photo }  
@@ -81,7 +81,9 @@ function useApplicationData() {
   }
 
   const getPhotosByTopics = (photosByTopicsData) => {
-    dispatch({type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: {photosByTopicsData}})
+    console.log('data', photosByTopicsData);
+    dispatch({type: ACTIONS.SET_PHOTO_DATA, payload: {photoData: photosByTopicsData}})
+
   }
   
   const selectPhoto = (photo) => {
@@ -100,12 +102,12 @@ function useApplicationData() {
   const setSelectedPhoto = (photo) => {
       // setState((prev) => ({ ...prev, selectedPhoto: photo }));
       selectPhoto(photo);
-    };
+  };
 
-    const onClosePhotoDetailsModal = () => {
-        // setState((prev) => ({ ...prev, displayModal: !prev.displayModal }));
-        displayPhotoDetails();
-      };
+  const onClosePhotoDetailsModal = () => {
+      // setState((prev) => ({ ...prev, displayModal: !prev.displayModal }));
+      displayPhotoDetails();
+  };
 
   
 
