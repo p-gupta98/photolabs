@@ -97,7 +97,7 @@ function useApplicationData() {
     dispatch( { type: ACTIONS.DISPLAY_PHOTO_DETAILS});
   }
 
-
+//Sets the select photo to that particular photo: this is the reducer dispatch function
   const setSelectedPhoto = (photo) => {
       // setState((prev) => ({ ...prev, selectedPhoto: photo }));
       selectPhoto(photo);
@@ -109,7 +109,7 @@ function useApplicationData() {
   };
 
   
-
+//This is the onClick function which calls the dispatch function
   const onPhotoSelect = (photo) => {
     setSelectedPhoto(photo);
     // setDisplayModal(true);
