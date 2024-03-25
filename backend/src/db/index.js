@@ -7,7 +7,6 @@ const config = {
   port: process.env.PGPORT,
   ssl: process.env.DATABASE_URL ? { rejectUnauthorized: false } : false
 }
-console.log(config);
 const client = new pg.Client(config);
 
 

@@ -15,6 +15,7 @@
 .DS_Store
 .env.local
 .env.development.local
+.env.example.local
 .env.test.local
 .env.production.local
 
@@ -23,4 +24,4 @@ yarn-debug.log*
 yarn-error.log*
 
 
-/React+App+-+Feedback
+/

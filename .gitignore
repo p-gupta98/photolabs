@@ -72,6 +72,7 @@ typings/
 .env
 .env.test
 .env.development
+.env.example
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -103,3 +104,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+.React+App+-+Feedback
+.DS_Store
