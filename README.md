@@ -12,10 +12,10 @@ The PhotoLabs project for the Web Development React course programming.
 
 This project is built with:
 
-- **Frontend**
+**Frontend**
 - React
 
-- **Backend**
+**Backend**
 - express
 - pg
 
